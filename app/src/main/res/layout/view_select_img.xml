@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="@dimen/small_space"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:background="@drawable/normal_white_bg"
+        android:padding="@dimen/small_space"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="@color/normal_text_color"
+            android:textSize="@dimen/normal_textSize"
+            android:text="@string/select_pic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_marginTop="@dimen/small_space"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/background"/>
+        <TextView
+            android:id="@+id/tv_gallery"
+            android:textSize="@dimen/normal_textSize"
+            android:textColor="@color/normal_text_color"
+            android:layout_marginTop="@dimen/small_space"
+            android:drawablePadding="@dimen/middle_space"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/gallery"
+            android:text="@string/select_pic_gallery"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+        <TextView
+            android:id="@+id/tv_camera"
+            android:textSize="@dimen/normal_textSize"
+            android:textColor="@color/normal_text_color"
+            android:drawablePadding="@dimen/middle_space"
+            android:gravity="center_vertical"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/camera"
+            android:text="@string/select_pic_camera"
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

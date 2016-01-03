@@ -1,0 +1,96 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:wheel="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/gray"
+    tools:context="com.hankkin.compustrading.activity.LoginActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:background="@color/theme_color"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:id="@+id/tv_back"
+            android:gravity="center_vertical"
+            android:textColor="@color/white"
+            android:textSize="@dimen/normal_title_btn_textSize"
+            android:layout_centerVertical="true"
+            android:text="@string/back"
+            android:drawableLeft="@drawable/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="@dimen/normal_title_btn_textSize"
+            android:textColor="@color/white"
+            style="@style/NewProText"
+            android:layout_centerInParent="true"
+            android:text="@string/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginRight="@dimen/middle_space"
+            android:layout_alignParentRight="true"
+            android:id="@+id/tv_register"
+            android:gravity="center_vertical"
+            android:textColor="@color/white"
+            android:textSize="@dimen/normal_title_btn_textSize"
+            android:layout_centerVertical="true"
+            android:text="@string/register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tl_name"
+        android:layout_below="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_login_name"
+            android:drawablePadding="@dimen/middle_space"
+            android:drawableLeft="@drawable/hint_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_username" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tl_pwd"
+        android:layout_below="@+id/tl_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_login_pwd"
+            android:drawablePadding="@dimen/middle_space"
+            android:drawableLeft="@drawable/pwd_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/et_pwd_hint" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:layout_below="@+id/tl_pwd"
+        android:id="@+id/btn_login"
+        android:background="@drawable/btn_login_background"
+        android:textSize="@dimen/normal_textSize"
+        android:textColor="@color/white"
+        android:text="@string/login"
+        android:layout_margin="@dimen/middle_space"
+        android:padding="@dimen/middle_space"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <com.pnikosis.materialishprogress.ProgressWheel
+        android:id="@+id/pw_loading"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        wheel:matProg_barColor="@color/theme_color"
+        wheel:matProg_progressIndeterminate="true"
+        android:layout_width="80dp"
+        android:layout_height="80dp" />
+
+</RelativeLayout>

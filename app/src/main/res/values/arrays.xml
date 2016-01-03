@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="school">
+        <item>南开大学</item>
+        <item>天津大学</item>
+        <item>天津财经大学</item>
+        <item>中国民航大学</item>
+        <item>天津工业大学</item>
+        <item>河北工业大学</item>
+        <item>天津理工大学</item>
+        <item>天津师范大学</item>
+        <item>天津科技大学</item>
+        <item>天津城建大学</item>
+        <item>天津农学院</item>
+        <item>天津商业大学</item>
+        <item>天津中医药大学</item>
+        <item>南开大学滨海学院</item>
+        <item>天津职业大学</item>
+        <item>天津医科大学临床医学院</item>
+        <item>天津财经大学珠江学院</item>
+        <item>天津美术学院</item>
+    </string-array>
+
+    <string-array name="cate">
+        <item>手机数码</item>
+        <item>书籍类</item>
+        <item>运动</item>
+        <item>生活</item>
+        <item>傻子</item>
+    </string-array>
+</resources>

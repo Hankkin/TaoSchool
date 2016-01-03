@@ -1,0 +1,42 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.hankkin.compustrading.activity.PersonActivity">
+
+
+    <RelativeLayout
+        android:background="@color/theme_color"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:clipToPadding="true"
+            android:fitsSystemWindows="true"
+            android:id="@+id/tv_back"
+            android:gravity="center_vertical"
+            android:textColor="@color/white"
+            android:textSize="@dimen/normal_title_btn_textSize"
+            android:layout_centerVertical="true"
+            android:text="@string/back"
+            android:drawableLeft="@drawable/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:textColor="@color/white"
+            style="@style/NewProText"
+            android:layout_centerInParent="true"
+            android:text="@string/personinfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <com.hankkin.compustrading.view.PullToZoomScrollViewEx
+
+        android:id="@+id/my_pull_scoll"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"></com.hankkin.compustrading.view.PullToZoomScrollViewEx>
+
+</LinearLayout>

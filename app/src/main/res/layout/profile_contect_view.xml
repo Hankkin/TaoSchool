@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:ripple="http://schemas.android.com/tools"
+    android:background="#ffffff"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+        <TextView
+            android:textColor="@color/deep_gray"
+            android:textSize="@dimen/normal_textSize"
+            android:paddingLeft="@dimen/biger_space"
+            android:gravity="center_vertical"
+            style="@style/NewProText"
+            android:text="@string/pro"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tv_test1"
+        android:background="@color/gray"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+    <com.hankkin.compustrading.view.RippleView
+        android:id="@+id/rv_buy"
+        ripple:rv_zoom="true"
+        ripple:rv_type="rectangle"
+        android:padding="@dimen/small_space"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+    <TextView
+        style="@style/NewProText"
+        android:paddingLeft="@dimen/middle_space"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:drawablePadding="@dimen/middle_space"
+        android:drawableLeft="@drawable/buy"
+        android:text="我要买"
+         />
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/right"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+    </com.hankkin.compustrading.view.RippleView>
+
+    <TextView
+        android:background="@color/gray"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <com.hankkin.compustrading.view.RippleView
+        android:id="@+id/rv_sale"
+        ripple:rv_zoom="true"
+        ripple:rv_type="rectangle"
+        android:padding="@dimen/small_space"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+        <TextView
+            style="@style/NewProText"
+            android:paddingLeft="@dimen/middle_space"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:drawablePadding="@dimen/middle_space"
+            android:drawableLeft="@drawable/sale"
+            android:text="我要卖"
+            />
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/right"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+    </com.hankkin.compustrading.view.RippleView>
+
+    <TextView
+        android:background="@color/gray"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+    <com.hankkin.compustrading.view.RippleView
+        ripple:rv_zoom="true"
+        ripple:rv_type="rectangle"
+        android:padding="@dimen/small_space"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+        <TextView
+            android:paddingLeft="@dimen/middle_space"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:drawablePadding="@dimen/middle_space"
+            android:drawableLeft="@drawable/search"
+            android:text="搜索商品"
+            style="@style/NewProText" />
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/right"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+    </com.hankkin.compustrading.view.RippleView>
+
+
+    <TextView
+        android:background="@color/gray"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+    <com.hankkin.compustrading.view.RippleView
+        ripple:rv_zoom="true"
+        ripple:rv_type="rectangle"
+        android:padding="@dimen/small_space"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+        <TextView
+            android:paddingLeft="@dimen/middle_space"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:drawablePadding="@dimen/middle_space"
+            android:drawableLeft="@drawable/shopping_cart"
+            android:text="购物车"
+            style="@style/NewProText" />
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/right"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+    </com.hankkin.compustrading.view.RippleView>
+
+    <TextView
+        android:background="@color/gray"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+        <TextView
+            android:paddingLeft="@dimen/biger_space"
+            android:gravity="center_vertical"
+            android:text="@string/about"
+            android:textSize="@dimen/normal_textSize"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <TextView
+        android:background="@color/gray"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+    <com.hankkin.compustrading.view.RippleView
+        ripple:rv_zoom="true"
+        ripple:rv_type="rectangle"
+        android:padding="@dimen/small_space"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+        <TextView
+            android:paddingLeft="@dimen/middle_space"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:drawablePadding="@dimen/middle_space"
+            android:drawableLeft="@drawable/person_outline"
+            android:text="个人信息"
+            style="@style/NewProText" />
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/right"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+    </com.hankkin.compustrading.view.RippleView>
+
+    <TextView
+        android:background="@color/gray"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+    <com.hankkin.compustrading.view.RippleView
+        ripple:rv_zoom="true"
+        ripple:rv_type="rectangle"
+        android:padding="@dimen/small_space"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+        <TextView
+            android:paddingLeft="@dimen/middle_space"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:drawablePadding="@dimen/middle_space"
+            android:drawableLeft="@drawable/heart"
+            android:text="我的收藏"
+            style="@style/NewProText" />
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/right"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+    </com.hankkin.compustrading.view.RippleView>
+
+    <TextView
+        android:background="@color/gray"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+    <com.hankkin.compustrading.view.RippleView
+        ripple:rv_zoom="true"
+        ripple:rv_type="rectangle"
+        android:padding="@dimen/small_space"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+        <TextView
+            android:paddingLeft="@dimen/middle_space"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:drawablePadding="@dimen/middle_space"
+            android:drawableLeft="@drawable/set_person"
+            android:text="设置"
+            style="@style/NewProText" />
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/right"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+    </com.hankkin.compustrading.view.RippleView>
+
+    <TextView
+        android:background="@color/gray"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"></LinearLayout>
+    <TextView
+        android:background="@color/gray"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+    <com.hankkin.compustrading.view.RippleView
+        android:id="@+id/rv_logout"
+        android:layout_marginLeft="@dimen/middle_space"
+        android:layout_marginRight="@dimen/middle_space"
+        android:layout_marginBottom="@dimen/biggest_space"
+        ripple:rv_zoom="true"
+        ripple:rv_type="rectangle"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_logout"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/normal_textSize"
+            android:text="退出帐号"
+            android:background="@color/theme_color"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+    </com.hankkin.compustrading.view.RippleView>
+
+
+</LinearLayout>

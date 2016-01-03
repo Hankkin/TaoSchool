@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/theme_color"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.AppBarLayout
+
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:contentScrim="@color/theme_color"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+            <com.hankkin.compustrading.view.CollapsingAvatarToolbar
+                android:id="@+id/stuff_container"
+                android:layout_width="wrap_content"
+                android:layout_height="?attr/actionBarSize"
+                android:orientation="vertical">
+
+                <com.hankkin.compustrading.view.RoundedImageView
+                    android:id="@+id/usericon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/defaut" />
+
+                <TextView
+                    android:id="@+id/username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Hankkin"
+                    android:textColor="@android:color/white"
+                    android:textSize="18dp" />
+
+                <!--<LinearLayout android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center_vertical"-->
+                <!--android:layout_marginLeft="16dp"-->
+                <!--android:orientation="vertical">-->
+
+                <!-- -->
+
+                <!--<TextView android:id="@+id/subtitle"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Subtitle"-->
+                <!--android:textColor="#80ffffff"-->
+                <!--android:textSize="15dp" />-->
+                <!--</LinearLayout>-->
+            </com.hankkin.compustrading.view.CollapsingAvatarToolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:padding="@dimen/small_space"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:padding="@dimen/small_space"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.hankkin.compustrading.view.RoundedImageView
+                    android:id="@+id/iv_user_head"
+                    android:src="@drawable/defaut"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp" />
+                <TextView
+                    android:layout_marginLeft="@dimen/small_space"
+                    android:textSize="@dimen/normal_textSize"
+                    android:text="Hankkin"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:id="@+id/tv_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textColor="@color/deep_gray"
+                    android:textSize="@dimen/small_textSize"
+                    android:text="asdas"
+                    android:id="@+id/tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginLeft="@dimen/small_space"
+                android:textColor="@color/black"
+                android:textSize="@dimen/normal_textSize"
+                android:id="@+id/tv_pro_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="二手" />
+
+            <TextView
+                android:layout_marginLeft="@dimen/small_space"
+                android:textColor="@color/black"
+                android:textSize="@dimen/normal_textSize"
+                android:id="@+id/tv_pro_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:scaleType="fitXY"
+                android:id="@+id/iv_product"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@color/deep_gray" />
+            <LinearLayout
+                android:paddingBottom="@dimen/small_space"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:drawablePadding="@dimen/tiny_space"
+                    android:drawableLeft="@drawable/location"
+                    android:textSize="@dimen/small_textSize"
+                    android:layout_marginTop="@dimen/small_space"
+                    android:layout_marginLeft="@dimen/middle_space"
+                    android:text="天津理工大学"
+                    android:id="@+id/tv_school"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textSize="@dimen/small_textSize"
+                    android:textColor="@color/theme_color"
+                    android:layout_marginRight="@dimen/middle_space"
+                    android:layout_marginTop="@dimen/small_space"
+                    android:text="￥"
+                    android:id="@+id/tv_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/middle_space"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="64dp">
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@drawable/telephone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@drawable/sms"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:src="@drawable/collect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+</android.support.design.widget.CoordinatorLayout>

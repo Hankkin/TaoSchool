@@ -1,0 +1,50 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+
+    <!-- 大间隔36 ~ 38px -->
+    <dimen name="biger_space">24dp</dimen>
+    <dimen name="biggest_space">30dp</dimen>
+    <!-- 大间隔30 ~ 32px -->
+    <dimen name="big_space">18dp</dimen>
+    <!-- 中间隔20 ~ 24px -->
+    <dimen name="middle_space">14dp</dimen>
+    <dimen name="middlerr_space">12dp</dimen>
+    <dimen name="middler_space">10dp</dimen>
+    <!-- 小间隔14 ~ 18px -->
+    <dimen name="small_space">8dp</dimen>
+    <dimen name="smaller_space">6dp</dimen>
+    <!-- 更小的间隔 -->
+    <dimen name="tiny_space">4dp</dimen>
+    <dimen name="tinyest_space">2dp</dimen>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="slidingmenu_offset">80dp</dimen>
+    <dimen name="shadow_width">15dp</dimen>
+
+
+    <dimen name="default_collapsed_padding">72dp</dimen>
+    <dimen name="default_expanded_padding">16dp</dimen>
+    <dimen name="default_collapsed_image_size">40dp</dimen>
+    <dimen name="default_expanded_image_size">60dp</dimen>
+    <dimen name="default_collapsed_text_size">18sp</dimen>
+    <dimen name="default_expanded_text_size">19sp</dimen>
+
+    <dimen name="fab_size_normal">56dp</dimen>
+    <dimen name="fab_size_mini">40dp</dimen>
+
+    <dimen name="fab_icon_size">24dp</dimen>
+
+    <dimen name="fab_plus_icon_size">14dp</dimen>
+    <dimen name="fab_plus_icon_stroke">2dp</dimen>
+
+    <dimen name="fab_shadow_offset">3dp</dimen>
+    <dimen name="fab_shadow_radius">9dp</dimen>
+
+    <dimen name="fab_stroke_width">1dp</dimen>
+
+    <dimen name="fab_actions_spacing">16dp</dimen>
+    <dimen name="fab_labels_margin">8dp</dimen>
+</resources>

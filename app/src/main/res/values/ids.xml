@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="selected_view" type="id"/>
+    <item type="id" name="scrollview"/>
+    <item name="usericon" type="id"></item>
+    <item name="username" type="id"></item>
+
+    <item name="fab_expand_menu_button" type="id"/>
+    <item name="fab_label" type="id"/>
+</resources>

@@ -1,0 +1,160 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hankkin.compustrading.activity.NewProductActivity">
+
+
+    <RelativeLayout
+        android:background="@color/theme_color"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:id="@+id/tv_back"
+            android:gravity="center_vertical"
+            android:textColor="@color/white"
+            android:textSize="@dimen/normal_title_btn_textSize"
+            android:layout_centerVertical="true"
+            android:text="@string/back"
+            android:drawableLeft="@drawable/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/normal_title_btn_textSize"
+            android:text="@string/new_pro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_margin="@dimen/middle_space"
+                android:layout_gravity="center"
+                android:id="@+id/iv_add_pro"
+                android:src="@drawable/add_pro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <View
+                android:background="@color/gray"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+            <android.support.design.widget.TextInputLayout
+                android:layout_margin="@dimen/small_space"
+                android:id="@+id/tl_tel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:inputType="number"
+                    android:layout_marginLeft="@dimen/middle_space"
+                    android:background="@null"
+                    android:id="@+id/et_tel"
+                    style="@style/NewProText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/pro_user_tel_hint" />
+            </android.support.design.widget.TextInputLayout>
+            <View
+                android:background="@color/gray"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tl_name"
+                android:layout_margin="@dimen/small_space"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_marginLeft="@dimen/middle_space"
+                    android:background="@null"
+                    android:id="@+id/et_name"
+                    style="@style/NewProText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/pro_name_hint" />
+            </android.support.design.widget.TextInputLayout>
+            <View
+                android:background="@color/gray"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+            <android.support.design.widget.TextInputLayout
+                android:layout_margin="@dimen/middle_space"
+                android:id="@+id/tl_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_marginLeft="@dimen/small_space"
+                    android:background="@null"
+                    android:id="@+id/et_price"
+                    style="@style/NewProText"
+                    android:inputType="number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/pro_price_hint" />
+            </android.support.design.widget.TextInputLayout>
+
+            <View
+                android:background="@color/gray"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+            <com.weiwangcn.betterspinner.library.BetterSpinner
+                android:background="@color/white"
+                android:layout_margin="@dimen/middle_space"
+                android:layout_below="@+id/tl_price"
+                android:id="@+id/spinner_school"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:hint="@string/pro_school_hint" />
+            <View
+                android:background="@color/gray"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+            <TextView
+                android:id="@+id/tv_cate"
+                android:padding="@dimen/middle_space"
+                style="@style/NewProText"
+                android:layout_below="@+id/spinner_school"
+                android:text="@string/pro_cate_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <View
+                android:background="@color/gray"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+
+            <Button
+                android:id="@+id/btn_fabu"
+                android:textColor="@color/white"
+                android:textSize="@dimen/normal_textSize"
+                android:text="@string/fabu"
+                style="@style/NewProText"
+                android:layout_margin="@dimen/middle_space"
+                android:background="@drawable/btn_login_background"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

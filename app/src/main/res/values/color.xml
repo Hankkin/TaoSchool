@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="theme_color">#2B98f0</color>
+    <color name="theme_color_tab">#2b89f0</color>
+
+    <!--白-->
+    <color name="white">#FFFFFF</color>
+    <color name="light_white">#fddbdbdb</color>
+    <!--黑-->
+    <color name="black">#000000</color>
+    <color name="deep_black">#ff000000</color>
+    <!--灰-->
+    <drawable name="light_gray">#F8F8FF</drawable>
+    <color name="transparent_gray">#ee373737</color>
+    <color name="gray">#f5f5f5</color>
+    <color name="gray_bg">#ebeced</color>
+    <color name="deep_gray">#707070</color>
+    <color name="gray_text">#959595</color>
+    <color name="normal_text_color">#424242</color>
+    <!--透明-->
+    <color name="transparent">#00000000</color>
+    <color name="translucent">#dd000000</color>
+    <color name="half_transparent">#b0000000</color>
+    <color name="ripple">#B0C4DE</color>
+
+    <color name="black_semi_transparent">#B2000000</color>
+    <color name="background">#e5e5e5</color>
+    <color name="half_black">#808080</color>
+    <color name="white_pressed">#f1f1f1</color>
+    <color name="pink">#e91e63</color>
+    <color name="pink_pressed">#ec407a</color>
+    <color name="blue_semi_transparent">#805677fc</color>
+    <color name="blue_semi_transparent_pressed">#80738ffe</color>
+
+
+    <color name="primary">#3F51B5</color>
+    <color name="primary_dark">#303F9F</color>
+    <color name="accent">#FF4081</color>
+    <color name="origle">#FF8C00</color>
+    <color name="origle_tab">#FF7F24</color>
+    FF7F24
+</resources>

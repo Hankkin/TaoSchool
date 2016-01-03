@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name">淘School</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string name="login">登录</string>
+    <string name="register">注册</string>
+    <string name="login_register">登录或注册</string>
+    <string name="et_tel_hint">请输入手机号</string>
+    <string name="code">发送验证码</string>
+    <string name="et_pwd_hint">请输入密码</string>
+    <string name="et_code_hint">请输入验证码</string>
+    <string name="main_title">School淘</string>
+    <string name="main_title_fu">赶快来，你值得拥有</string>
+    <string name="main_show_title">校园二手</string>
+    <string name="load">正在加载</string>
+    <string name="qq_login">QQ登录</string>
+    <string name="weibo_login">微博登录</string>
+    <string name="others">其他帐号登录</string>
+    <string name="setting">设置</string>
+    <string name="back">返回</string>
+    <string name="new_pro">发布商品</string>
+    <string name="ok">确定</string>
+    <string name="select_pic">选择图片</string>
+    <string name="select_pic_gallery">从相册选择</string>
+    <string name="select_pic_camera">拍照</string>
+    <string name="action_title">School淘</string>
+    <string name="title_activity_product_detail">ProductDetailActivity</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_person">PersonActivity</string>
+    <string name="title_activity_prodect_detail">ProdectDetailActivity</string>
+
+    <string name="hint_username">请输入手机号</string>
+    <string name="hint_pwd">请输入密码</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="title_activity_new_product">NewProductActivity</string>
+
+
+    <string name="pro_name">商品名称</string>
+    <string name="pro_name_hint">请输入商品名称</string>
+    <string name="pro_price">商品价格</string>
+    <string name="pro_price_hint">请输入商品价格</string>
+    <string name="pro_school">学校</string>
+    <string name="pro_school_hint">请选择学校</string>
+    <string name="pro_cate">分类</string>
+    <string name="pro_cate_hint">请选择分类</string>
+    <string name="pro_user_tel">联系方式</string>
+    <string name="pro_user_tel_hint">请输入联系方式</string>
+    <string name="fabu">发布</string>
+    <string name="pro">商品</string>
+    <string name="about">关于我的</string>
+    <string name="search_pro">搜索商品</string>
+    <string name="title_activity_search_pro">SearchProActivity</string>
+    <string name="buy">我要买</string>
+    <string name="sale">我要卖</string>
+    <string name="personinfo">个人中心</string>
+    <string name="title_activity_splas">SplasActivity</string>
+
+</resources>

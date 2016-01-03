@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 应用字体大小 -->
+<resources>
+    <!-- 38px -->
+    <dimen name="biggest_textSize">24sp</dimen>
+    <!-- 35px -->
+    <dimen name="bigger_textSize">22sp</dimen>
+    <!-- 32px -->
+    <dimen name="big_textSize">20sp</dimen>
+    <!-- 29px -->
+    <dimen name="normal_textSize">16sp</dimen>
+    <dimen name="normal_title_btn_textSize">18sp</dimen>
+    <!-- 50px -->
+    <dimen name="superBig_textSize">30sp</dimen>
+    <dimen name="middleBig_textSize">24sp</dimen>
+    <!-- 26px -->
+    <dimen name="small_textSize">14sp</dimen>
+    <!-- 22px -->
+    <dimen name="smaller_textSize">12sp</dimen>
+    <!-- 19px -->
+    <dimen name="smallest_textSize">12sp</dimen>
+    <!-- 15px -->
+    <dimen name="tiny_textSize">10sp</dimen>
+    <dimen name="tinyest_textSize">8sp</dimen>
+</resources>
