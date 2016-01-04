@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -162,15 +163,22 @@ public class NewProductActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
         if (requestCode == REQUEST_CODE_GALLERY) {
+            if(data == null){
+                return;
+            }
             filePath = getPath(NewProductActivity.this, data.getData());
             if (!TextUtils.isEmpty(filePath)) {
                 ivAddPro.setImageBitmap(BitmapUtils.getCompressedBitmap(NewProductActivity.this, filePath));
             }
         } else if (requestCode == REQUST_CODE_CAMERA) {
             if (!TextUtils.isEmpty(filePath)) {
-                ivAddPro.setImageBitmap(BitmapUtils.getCompressedBitmap(NewProductActivity.this, filePath));
-
+              Bitmap  temp  =  BitmapUtils.getCompressedBitmap(NewProductActivity.this, filePath);
+                if(temp==null){
+                    return;
+                }
+                ivAddPro.setImageBitmap(temp);
             }
         }
     }
