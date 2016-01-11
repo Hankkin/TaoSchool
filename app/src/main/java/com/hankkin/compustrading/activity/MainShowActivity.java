@@ -9,17 +9,13 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AbsListView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.hankkin.compustrading.R;
-import com.hankkin.compustrading.ScrollDirectionListener;
 import com.hankkin.compustrading.Utils.HankkinUtils;
 import com.hankkin.compustrading.adapter.CategoryFragmentAdapter;
 import com.hankkin.compustrading.fragment.CateDetailFragment;
@@ -35,7 +31,6 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import butterknife.Bind;

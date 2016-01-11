@@ -20,7 +20,7 @@
     <!--透明-->
     <color name="transparent">#00000000</color>
     <color name="translucent">#dd000000</color>
-    <color name="half_transparent">#b0000000</color>
+    <color name="half_transparent">#40000000</color>
     <color name="ripple">#B0C4DE</color>
 
     <color name="black_semi_transparent">#B2000000</color>

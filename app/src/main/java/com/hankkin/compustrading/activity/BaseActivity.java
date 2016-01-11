@@ -14,10 +14,12 @@ import android.os.PersistableBundle;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 
 import com.bmob.BTPFileResponse;
 import com.bmob.BmobProFile;
@@ -26,6 +28,7 @@ import com.hankkin.compustrading.FileUploadListener;
 import com.hankkin.compustrading.R;
 import com.hankkin.compustrading.Utils.HankkinUtils;
 import com.hankkin.compustrading.model.Person;
+import com.pnikosis.materialishprogress.ProgressWheel;
 
 import java.io.File;
 
@@ -98,6 +101,12 @@ public class BaseActivity extends AppCompatActivity {
     public void showLoadingDialog(){
         loadDialog = new MaterialDialog(this);
         View view = LayoutInflater.from(this).inflate(R.layout.loading,null,false);
+        ProgressWheel wheel = (ProgressWheel) view.findViewById(R.id.pw_loading);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(80,80);
+        params.height = HankkinUtils.dip2px(this,80);
+        params.width = HankkinUtils.dip2px(this,80);
+        wheel.setLayoutParams(params);
+        wheel.setBackgroundColor(getResources().getColor(R.color.light_white));
         loadDialog.setView(view);
         loadDialog.setBackgroundResource(getResources().getColor(R.color.transparent));
         loadDialog.show();

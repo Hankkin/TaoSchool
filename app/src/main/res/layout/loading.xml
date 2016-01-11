@@ -3,9 +3,10 @@
     xmlns:wheel="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center"
+    android:id="@+id/ll_loading"
     android:background="@color/transparent"
-    android:layout_width="80dp"
-    android:layout_height="80dp">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <com.pnikosis.materialishprogress.ProgressWheel
         android:id="@+id/pw_loading"
         android:background="@color/transparent"
@@ -13,6 +14,7 @@
         android:layout_centerVertical="true"
         wheel:matProg_barColor="@color/theme_color"
         wheel:matProg_progressIndeterminate="true"
+        wheel:matProg_rimColor="@color/gray"
         android:layout_width="80dp"
         android:layout_height="80dp" />
 </LinearLayout>
