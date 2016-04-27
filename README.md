@@ -1,5 +1,5 @@
 # TaoSchool
-the first commit
+一款基于Material Desgin设计的APP
 
 ###look at the screenshot:
 
