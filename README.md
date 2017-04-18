@@ -1,12 +1,12 @@
 # TaoSchool
 一款基于Material Desgin设计的APP
 
-###look at the screenshot:
+### look at the screenshot:
 
 <img src="http://img.blog.csdn.net/20160101143739659" width = "320" height = "640" alt="高仿微信群聊头像" align=center />
 
 <img src="http://img.blog.csdn.net/20151229160604230" width = "200" height = "200" alt="高仿微信群聊头像" align=center />
-###download：
+### download：
 网站： 
 http://hankkin.bmob.cn 
 
@@ -19,7 +19,7 @@ http://zhushou.360.cn/detail/index/soft_id/3181637?recrefer=SE_D_%E6%B7%98School
 百度开发平台 
 http://shouji.baidu.com/soft/item?docid=8561791&from=&f=search_app_淘School%40list_1_title%401%40header_all_input 
 
-###tech:
+### tech:
 1.Android Support Desgin
 
 CollapsingAvatarToolbar 头像随ListView滚动缩回到ActionBar特效 
