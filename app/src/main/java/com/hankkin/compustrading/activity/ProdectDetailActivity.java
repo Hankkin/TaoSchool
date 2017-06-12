@@ -1,11 +1,10 @@
 package com.hankkin.compustrading.activity;
 
+import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -15,7 +14,6 @@ import android.widget.TextView;
 import com.hankkin.compustrading.R;
 import com.hankkin.compustrading.Utils.HankkinUtils;
 import com.hankkin.compustrading.model.Product;
-import com.hankkin.compustrading.view.CollapsingAvatarToolbar;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class ProdectDetailActivity extends AppCompatActivity {
@@ -43,7 +41,7 @@ public class ProdectDetailActivity extends AppCompatActivity {
         //透明导航栏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(android.support.v7.appcompat.R.drawable.abc_ic_ab_back_mtrl_am_alpha);
+        toolbar.setNavigationIcon(android.support.v7.appcompat.R.drawable.abc_ic_ab_back_material);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,12 +1,9 @@
 package com.hankkin.compustrading.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -77,41 +74,39 @@ public class RegisterActivity extends AppCompatActivity {
         Person person = new Person();
         person.setUsername(name);
         person.setPassword(pwd);
-        person.signUp(RegisterActivity.this, new SaveListener() {
+        person.signUp(new SaveListener<Object>() {
             @Override
-            public void onSuccess() {
-                MySP.setPASSWoRD(RegisterActivity.this,pwd);
-                MySP.setUSERNAME(RegisterActivity.this, name);
-                wheel.stopSpinning();
-                HankkinUtils.showToast(RegisterActivity.this, "注册成功");
-                BmobUser.loginByAccount(RegisterActivity.this, "username", "用户密码", new LogInListener<Person>() {
-
-                    @Override
-                    public void done(Person user, BmobException e) {
-                        // TODO Auto-generated method stub
-                        if (user != null) {
-                            Log.i("smile", "用户登陆成功");
-                        }
+            public void done(Object o, BmobException e) {
+                if (e == null){
+                    MySP.setPASSWoRD(RegisterActivity.this,pwd);
+                    MySP.setUSERNAME(RegisterActivity.this, name);
+                    wheel.stopSpinning();
+                    HankkinUtils.showToast(RegisterActivity.this, "注册成功");
+                    Intent intent = new Intent(RegisterActivity.this,MainShowActivity.class);
+                    startActivity(intent);
+                    finish();
+                    if (LoginActivity.instance!=null){
+                        LoginActivity.instance.finish();
                     }
-                });
-                Intent intent = new Intent(RegisterActivity.this,MainShowActivity.class);
-                startActivity(intent);
-                finish();
-                if (LoginActivity.instance!=null){
-                    LoginActivity.instance.finish();
-                }
-                if (PersonActivity.instance!=null){
-                    PersonActivity.instance.finish();
-                }
-                if (MainShowActivity.instance!=null){
-                    MainShowActivity.instance.finish();
-                }
-            }
+                    if (PersonActivity.instance!=null){
+                        PersonActivity.instance.finish();
+                    }
+                    if (MainShowActivity.instance!=null){
+                        MainShowActivity.instance.finish();
+                    }
+                    BmobUser.loginByAccount("username", "用户密码", new LogInListener<Person>() {
+                        @Override
+                        public void done(Person person, BmobException e) {
+                            if (e == null){
 
-            @Override
-            public void onFailure(int i, String s) {
-                wheel.stopSpinning();
-                HankkinUtils.showToast(RegisterActivity.this, "注册失败");
+                            }
+                        }
+                    });
+                }
+                else {
+                    wheel.stopSpinning();
+                    HankkinUtils.showToast(RegisterActivity.this, "注册失败");
+                }
             }
         });
     }

@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.os.Environment;
 import android.os.Handler;
 
-
 import com.hankkin.compustrading.R;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
 import com.nostra13.universalimageloader.cache.disc.naming.HashCodeFileNameGenerator;
@@ -22,7 +21,6 @@ import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
 import java.io.File;
 
 import cn.bmob.v3.Bmob;
-import cn.bmob.v3.update.BmobUpdateAgent;
 
 /**
  * Created by Hankkin on 15/11/28.
@@ -67,7 +65,15 @@ public class MyApplication extends Application {
         // ImageLoaderConfiguration.createDefault(this);
         // method.
 //        File cacheDir = StorageUtils.getCacheDirectory(context);
-        File picPath = new File(Environment.getExternalStorageDirectory().getPath() + File.separator + "compustrading" + File.separator + "files");
+        File file = new File(Environment.getExternalStorageDirectory().getPath() + "/compustrading");
+        if (!file.exists()) {
+            file.mkdir();
+        }
+        String path = file.getAbsolutePath() + "/files";
+        File fileSD = new File(path);
+        if (!fileSD.exists()) {
+            fileSD.mkdir();
+        }
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())
                 .memoryCacheExtraOptions(480, 800) // default = device screen dimensions
                 .diskCacheExtraOptions(480, 800, null)
@@ -78,7 +84,7 @@ public class MyApplication extends Application {
                 .memoryCache(new LruMemoryCache(2 * 1024 * 1024))
                 .memoryCacheSize(2 * 1024 * 1024)
                 .memoryCacheSizePercentage(13) // default
-                .diskCache(new UnlimitedDiskCache(picPath)) // default
+                .diskCache(new UnlimitedDiskCache(file)) // default
                 .diskCacheSize(50 * 1024 * 1024)
                 .diskCacheFileCount(1000)
                 .diskCacheFileNameGenerator(new HashCodeFileNameGenerator()) // default

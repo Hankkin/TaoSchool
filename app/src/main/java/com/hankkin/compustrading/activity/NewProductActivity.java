@@ -2,13 +2,9 @@ package com.hankkin.compustrading.activity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -23,9 +19,7 @@ import com.hankkin.compustrading.FileUploadListener;
 import com.hankkin.compustrading.R;
 import com.hankkin.compustrading.Utils.BitmapUtils;
 import com.hankkin.compustrading.Utils.HankkinUtils;
-import com.hankkin.compustrading.model.Person;
 import com.hankkin.compustrading.model.Product;
-import com.nostra13.universalimageloader.core.ImageLoader;
 import com.weiwangcn.betterspinner.library.BetterSpinner;
 
 import java.util.Date;
@@ -33,6 +27,7 @@ import java.util.Date;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 import me.drakeet.materialdialog.MaterialDialog;
 
@@ -75,10 +70,10 @@ public class NewProductActivity extends BaseActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_dropdown_item_1line, schools);
         spinnerSchool.setAdapter(adapter);
-        String tel = HankkinUtils.getPhoneNumber(NewProductActivity.this);
-        if (!TextUtils.isEmpty(tel)){
-            etTel.setText(tel);
-        }
+//        String tel = HankkinUtils.getPhoneNumber(NewProductActivity.this);
+//        if (!TextUtils.isEmpty(tel)){
+//            etTel.setText(tel);
+//        }
 
         tvBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -168,7 +163,7 @@ public class NewProductActivity extends BaseActivity {
             if(data == null){
                 return;
             }
-            filePath = getPath(NewProductActivity.this, data.getData());
+            filePath = getAbsoluteImagePath(NewProductActivity.this, data.getData());
             if (!TextUtils.isEmpty(filePath)) {
                 ivAddPro.setImageBitmap(BitmapUtils.getCompressedBitmap(NewProductActivity.this, filePath));
             }
@@ -242,18 +237,18 @@ public class NewProductActivity extends BaseActivity {
      * @param product
      */
     private void addProHttp(final Product product){
-        product.save(NewProductActivity.this, new SaveListener() {
+        product.save(new SaveListener<String>() {
             @Override
-            public void onSuccess() {
-                dimissDialog();
-                HankkinUtils.showToast(NewProductActivity.this, "发布成功");
-                finish();
-            }
-
-            @Override
-            public void onFailure(int i, String s) {
-                dimissDialog();
-                HankkinUtils.showToast(NewProductActivity.this,"发布失败");
+            public void done(String s, BmobException e) {
+                if (e == null){
+                    dimissDialog();
+                    HankkinUtils.showToast(NewProductActivity.this, "发布成功");
+                    finish();
+                }
+                else {
+                    dimissDialog();
+                    HankkinUtils.showToast(NewProductActivity.this,"发布失败");
+                }
             }
         });
     }

@@ -1,11 +1,8 @@
 package com.hankkin.compustrading.activity;
 
 import android.content.Intent;
-import android.os.Environment;
-import android.os.Handler;
-import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
@@ -13,7 +10,6 @@ import android.view.WindowManager;
 import com.hankkin.compustrading.R;
 import com.hankkin.compustrading.Utils.HankkinUtils;
 import com.hankkin.compustrading.model.Category;
-import com.hankkin.compustrading.model.Product;
 
 import java.io.File;
 import java.io.Serializable;
@@ -21,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 
 public class SplasActivity extends BaseActivity {
@@ -76,25 +73,26 @@ public class SplasActivity extends BaseActivity {
     private void queryCategory() {
         BmobQuery<Category> categoryBmobQuery = new BmobQuery<>();
         categoryBmobQuery.order("createdAt");// 按照时间降序
-        categoryBmobQuery.findObjects(this, new FindListener<Category>() {
+        categoryBmobQuery.findObjects(new FindListener<Category>() {
             @Override
-            public void onSuccess(List<Category> list) {
-                if (list != null && list.size() > 0) {
-                    ArrayList<Category> categories = new ArrayList<Category>();
-                    categories.addAll(list);
-                    Intent intent = new Intent(SplasActivity.this,MainShowActivity.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable("categories", (Serializable) categories);
-                    intent.putExtras(bundle);
-                    startActivity(intent);
-                    finish();
+            public void done(List<Category> list, BmobException e) {
+                if (e == null){
+                    if (list != null && list.size() > 0) {
+                        ArrayList<Category> categories = new ArrayList<Category>();
+                        categories.addAll(list);
+                        Intent intent = new Intent(SplasActivity.this,MainShowActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("categories", (Serializable) categories);
+                        intent.putExtras(bundle);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+                else {
+                    HankkinUtils.showToast(SplasActivity.this, e.getMessage());
                 }
             }
 
-            @Override
-            public void onError(int i, String s) {
-                HankkinUtils.showToast(SplasActivity.this, s);
-            }
         });
     }
 

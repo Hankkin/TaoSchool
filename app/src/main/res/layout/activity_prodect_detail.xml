@@ -137,7 +137,7 @@
                 android:id="@+id/iv_product"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:background="@color/deep_gray" />
+                android:background="@color/gray" />
             <LinearLayout
                 android:paddingBottom="@dimen/small_space"
                 android:orientation="horizontal"

@@ -42,7 +42,7 @@
         <ImageView
             android:scaleType="fitXY"
             android:id="@+id/iv_product"
-            android:src="@color/gray"
+            android:background="@color/gray"
             android:layout_width="130dp"
             android:layout_height="100dp" />
         <LinearLayout

@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
-
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.hankkin.compustrading"
         minSdkVersion 14
-        targetSdkVersion 23
-        versionCode 2
-        versionName "1.0.1"
+        targetSdkVersion 22
+        versionCode 3
+        versionName "1.1.0"
     }
     buildTypes {
         release {
@@ -22,10 +22,10 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.0.1'
-    compile files('libs/BmobSDK_V3.4.5_1111.jar')
-    compile files('libs/okio-1.4.0.jar')
-    compile 'com.android.support:support-v4:23.0.1'
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'cn.bmob.android:bmob-sdk:3.5.5'
+    compile 'cn.bmob.android:http-legacy:1.0'
+    compile 'com.android.support:support-v4:25.2.0'
     compile 'com.github.manuelpeinado.fadingactionbar:fadingactionbar-abc:3.1.2'
     compile 'com.pnikosis:materialish-progress:1.7'
     compile 'me.drakeet.materialdialog:library:1.2.8'
@@ -33,5 +33,5 @@ dependencies {
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     compile 'com.weiwangcn.betterspinner:library:1.1.0'
     compile 'com.nineoldandroids:library:2.4.0'
-    compile 'com.android.support:design:23.0.1'
+    compile 'com.android.support:design:25.2.0'
 }

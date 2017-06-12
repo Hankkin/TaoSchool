@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -77,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
             HankkinUtils.showToast(LoginActivity.this, "密码不能为空");
             return;
         }
-        Person.loginByAccount(this, name, pwd, new LogInListener<Person>() {
+        Person.loginByAccount(name, pwd, new LogInListener<Person>() {
             @Override
             public void done(Person person, BmobException e) {
                 MySP.setPASSWoRD(LoginActivity.this, pwd);

@@ -37,6 +37,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.update.BmobUpdateAgent;
 
@@ -184,7 +185,7 @@ public class MainShowActivity extends BaseActivity {
         fbWrite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Person person = BmobUser.getCurrentUser(MainShowActivity.this, Person.class);
+                Person person = BmobUser.getCurrentUser(Person.class);
                 if (person != null) {
                     fragments.get(pager.getCurrentItem()).hideFab();
                     Intent intent = new Intent(MainShowActivity.this, NewProductActivity.class);
@@ -286,26 +287,24 @@ public class MainShowActivity extends BaseActivity {
     private void queryProductsHttp() {
         BmobQuery<Product> productBmobQuery = new BmobQuery<>();
         productBmobQuery.order("-createdAt");
-        productBmobQuery.findObjects(this, new FindListener<Product>() {
+        productBmobQuery.findObjects(new FindListener<Product>() {
             @Override
-            public void onSuccess(List<Product> list) {
-                if (list != null && list.size() > 0) {
-                    List<Product> data = new ArrayList<Product>();
-                    for (Product p : list) {
-                        data.add(p);
+            public void done(List<Product> list, BmobException e) {
+                if (e == null){
+                    if (list != null && list.size() > 0) {
+                        List<Product> data = new ArrayList<Product>();
+                        for (Product p : list) {
+                            data.add(p);
+                        }
+                        Message msg = new Message();
+                        msg.what = 0;
+                        msg.obj = data;
+                        handler.sendMessage(msg);
                     }
-                    Message msg = new Message();
-                    msg.what = 0;
-                    msg.obj = data;
-                    handler.sendMessage(msg);
                 }
             }
-
-            @Override
-            public void onError(int i, String s) {
-
-            }
         });
+
     }
 
     @Override
@@ -373,19 +372,19 @@ public class MainShowActivity extends BaseActivity {
         showLoadingDialog();
         BmobQuery<Category> categoryBmobQuery = new BmobQuery<>();
         categoryBmobQuery.order("createdAt");// 按照时间降序
-        categoryBmobQuery.findObjects(this, new FindListener<Category>() {
+        categoryBmobQuery.findObjects(new FindListener<Category>() {
             @Override
-            public void onSuccess(List<Category> list) {
-                if (list != null && list.size() > 0) {
-                    categories = new ArrayList<Category>();
-                    categories.addAll(list);
-                    queryProductsHttp();
+            public void done(List<Category> list, BmobException e) {
+                if (e == null){
+                    if (list != null && list.size() > 0) {
+                        categories = new ArrayList<Category>();
+                        categories.addAll(list);
+                        queryProductsHttp();
+                    }
                 }
-            }
-
-            @Override
-            public void onError(int i, String s) {
-                HankkinUtils.showToast(MainShowActivity.this, s);
+                else {
+                    HankkinUtils.showToast(MainShowActivity.this, e.getMessage());
+                }
             }
         });
     }

@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hankkin.compustrading.R;
-import com.hankkin.compustrading.Utils.HankkinUtils;
 import com.hankkin.compustrading.model.Product;
 import com.hankkin.compustrading.view.RoundedImageView;
 import com.nostra13.universalimageloader.core.ImageLoader;

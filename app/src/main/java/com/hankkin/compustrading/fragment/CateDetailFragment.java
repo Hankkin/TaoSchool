@@ -32,6 +32,7 @@ import java.util.List;
 
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.datatype.BmobDate;
+import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 
 /**
@@ -139,22 +140,24 @@ public class CateDetailFragment extends Fragment implements SwipeRefreshLayout.O
         productBmobQuery.order("-createdAt");
         productBmobQuery.setLimit(10);
         productBmobQuery.addWhereEqualTo("cid", cid);
-        productBmobQuery.findObjects(getActivity(), new FindListener<Product>() {
+        productBmobQuery.findObjects(new FindListener<Product>() {
             @Override
-            public void onSuccess(List<Product> list) {
-                if (list != null && list.size() > 0) {
-                    productList.clear();
-                    productList.addAll(list);
-                    adapter = new ProductAdapter(productList, getActivity());
-                    lvProduct.setAdapter(adapter);
-                    swipeRefreshLayout.setRefreshing(false);
+            public void done(List<Product> list, BmobException e) {
+                if (e == null){
+                    if (list != null && list.size() > 0) {
+                        productList.clear();
+                        productList.addAll(list);
+                        adapter = new ProductAdapter(productList, getActivity());
+                        lvProduct.setAdapter(adapter);
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+                }
+                else {
+                    HankkinUtils.showLToast(getActivity(),e.getMessage());
                 }
             }
 
-            @Override
-            public void onError(int i, String s) {
 
-            }
         });
     }
 
@@ -172,22 +175,21 @@ public class CateDetailFragment extends Fragment implements SwipeRefreshLayout.O
         productBmobQuery.order("-createdAt");
         productBmobQuery.setLimit(10);
         productBmobQuery.addWhereEqualTo("cid", cid);
-        productBmobQuery.findObjects(getActivity(), new FindListener<Product>() {
+        productBmobQuery.findObjects(new FindListener<Product>() {
             @Override
-            public void onSuccess(List<Product> list) {
-                if (list != null && list.size() > 0) {
-                    productList.addAll(list);
-                    adapter.notifyDataSetChanged();
-                    swipeRefreshLayout.setLoading(false);
-                } else {
-                    HankkinUtils.showToast(getActivity().getApplicationContext(), "暂无新数据");
-                    swipeRefreshLayout.setLoading(false);
+            public void done(List<Product> list, BmobException e) {
+                if (e == null){
+                    if (list != null && list.size() > 0) {
+                        productList.addAll(list);
+                        adapter.notifyDataSetChanged();
+                        swipeRefreshLayout.setLoading(false);
+                    } else {
+                        HankkinUtils.showToast(getActivity().getApplicationContext(), "暂无新数据");
+                        swipeRefreshLayout.setLoading(false);
+                    }
+                }else {
+                    HankkinUtils.showLToast(getActivity(),e.getMessage());
                 }
-            }
-
-            @Override
-            public void onError(int i, String s) {
-
             }
         });
     }

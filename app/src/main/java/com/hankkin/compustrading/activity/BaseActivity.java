@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.ContentUris;
 import android.content.Context;
+import android.content.CursorLoader;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -14,16 +15,10 @@ import android.os.PersistableBundle;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
 
-import com.bmob.BTPFileResponse;
-import com.bmob.BmobProFile;
-import com.bmob.btp.callback.UploadListener;
 import com.hankkin.compustrading.FileUploadListener;
 import com.hankkin.compustrading.R;
 import com.hankkin.compustrading.Utils.HankkinUtils;
@@ -33,6 +28,7 @@ import com.pnikosis.materialishprogress.ProgressWheel;
 import java.io.File;
 
 import cn.bmob.v3.datatype.BmobFile;
+import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.UploadFileListener;
 import me.drakeet.materialdialog.MaterialDialog;
 
@@ -57,7 +53,7 @@ public class BaseActivity extends AppCompatActivity {
 
 
     public Person getCurrentPerson(Context context){
-        Person person = Person.getCurrentUser(context,Person.class);
+        Person person = Person.getCurrentUser(Person.class);
         return person;
     }
 
@@ -67,8 +63,9 @@ public class BaseActivity extends AppCompatActivity {
      * @param act
      */
     public  void getImageFromGallery(Activity act) {
-        Intent intent = new Intent(Intent.ACTION_PICK,
-                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType("image/*");
+        // 开启一个带有返回值的Activity，请求码为PHOTO_REQUEST_GALLERY
         act.startActivityForResult(intent, REQUEST_CODE_GALLERY);
     }
 
@@ -77,24 +74,20 @@ public class BaseActivity extends AppCompatActivity {
      * by Hankkin at:2015-12-20 23:00:34
      */
 
-    public void uploadImg(String filepath,Context context, final FileUploadListener listener){
-        BTPFileResponse response = BmobProFile.getInstance(context).upload(filepath, new UploadListener() {
+    public void uploadImg(final String filepath, Context context, final FileUploadListener listener){
+        final BmobFile file = new BmobFile(new File(filepath));
+        file.upload(new UploadFileListener() {
             @Override
-            public void onSuccess(String s, String s1, BmobFile bmobFile) {
-                String url = bmobFile.getUrl();
-                listener.success(url);
-            }
-
-            @Override
-            public void onProgress(int i) {
-
-            }
-
-            @Override
-            public void onError(int i, String s) {
-                listener.fail();
+            public void done(BmobException e) {
+                if (e == null){
+                    listener.success(file.getFileUrl());
+                }
+                else {
+                    listener.fail();
+                }
             }
         });
+
     }
 
 
@@ -160,6 +153,49 @@ public class BaseActivity extends AppCompatActivity {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
         act.startActivityForResult(intent, REQUST_CODE_CAMERA);
+    }
+
+
+    /**
+     * 从URI获取本地路径
+     *
+     * @param selectedVideoUri
+     * @param contentResolver
+     * @return
+     */
+    public static  String getAbsoluteImagePath(Activity activity, Uri contentUri) {
+
+        //如果是对媒体文件，在android开机的时候回去扫描，然后把路径添加到数据库中。
+        //由打印的contentUri可以看到：2种结构。正常的是：content://那么这种就要去数据库读取path。
+        //另外一种是Uri是 file:///那么这种是 Uri.fromFile(File file);得到的
+        System.out.println(contentUri);
+
+        String[] projection = { MediaStore.Images.Media.DATA };
+        String urlpath;
+        CursorLoader loader = new CursorLoader(activity,contentUri, projection, null, null, null);
+        Cursor cursor = loader.loadInBackground();
+        try
+        {
+            int column_index = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            urlpath =cursor.getString(column_index);
+            //如果是正常的查询到数据库。然后返回结构
+            return urlpath;
+        }
+        catch (Exception e)
+        {
+
+            e.printStackTrace();
+            // TODO: handle exception
+        }finally{
+            if(cursor != null){
+                cursor.close();
+            }
+        }
+
+        //如果是文件。Uri.fromFile(File file)生成的uri。那么下面这个方法可以得到结果
+        urlpath = contentUri.getPath();
+        return urlpath;
     }
 
     /**

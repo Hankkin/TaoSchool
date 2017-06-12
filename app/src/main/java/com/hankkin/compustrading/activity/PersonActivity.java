@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -27,6 +26,7 @@ import java.util.Date;
 import java.util.List;
 
 import butterknife.Bind;
+import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.UpdateListener;
 import me.drakeet.materialdialog.MaterialDialog;
 
@@ -88,7 +88,7 @@ public class PersonActivity extends BaseActivity {
 
     private void initData() {
 
-        Person person = Person.getCurrentUser(this, Person.class);
+        Person person = Person.getCurrentUser(Person.class);
         if (person != null) {
             ImageLoader.getInstance().displayImage(person.getUser_icon(), ivUserIcon);
             tvLogin.setVisibility(View.GONE);
@@ -120,7 +120,7 @@ public class PersonActivity extends BaseActivity {
         rvLogout.setOnRippleCompleteListener(new RippleView.OnRippleCompleteListener() {
             @Override
             public void onComplete(RippleView rippleView) {
-                Person.logOut(PersonActivity.this);
+                Person.logOut();
                 HankkinUtils.showToast(PersonActivity.this, "已注销");
                 initData();
                 finish();
@@ -208,7 +208,7 @@ public class PersonActivity extends BaseActivity {
 
                     @Override
                     public void success(final String url) {
-                        Person person = Person.getCurrentUser(PersonActivity.this, Person.class);
+                        Person person = Person.getCurrentUser( Person.class);
                         person.setUser_icon(url);
                         ImageLoader.getInstance().displayImage(url, ivUserIcon);
                         updateUser(person);
@@ -233,8 +233,9 @@ public class PersonActivity extends BaseActivity {
 
                     @Override
                     public void success(String url) {
-                        Person person = Person.getCurrentUser(PersonActivity.this, Person.class);
+                        Person person = Person.getCurrentUser(Person.class);
                         person.setUser_icon(url);
+//                        MyImageLoader.getInstance().displayImage(PersonActivity.this,url, ivUserIcon);
                         ImageLoader.getInstance().displayImage(url, ivUserIcon);
                         updateUser(person);
                     }
@@ -256,16 +257,13 @@ public class PersonActivity extends BaseActivity {
      * @param person
      */
     private void updateUser(Person person) {
-        person.update(this, person.getObjectId(), new UpdateListener() {
+        person.update(person.getObjectId(), new UpdateListener() {
             @Override
-            public void onSuccess() {
-                dimissDialog();
-                HankkinUtils.showToast(PersonActivity.this, "上传成功");
-            }
-
-            @Override
-            public void onFailure(int i, String s) {
-
+            public void done(BmobException e) {
+                if (e == null){
+                    dimissDialog();
+                    HankkinUtils.showToast(PersonActivity.this, "上传成功");
+                }
             }
         });
     }
