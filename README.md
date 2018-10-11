@@ -1,3 +1,5 @@
+### **该APP已经不再维护了，如果您需要的话 请看 https://github.com/Hankkin/Reading** *Reading是一款基于WanAndroid OpenApi开发的阅读类工具，如果你是一个热衷于Android开发者，那么这款软件能帮助你阅读精品Android文章。 同时Reading中还包含"英文单词"、"账号本子"、"天气"、"查单词"、"快递查询"等小工具。项目基于"Kotlin+MVP"架构开发，风格大概也许属于Material Desgin原质化风格，包含主题颜色切换、百变Logo、 等功能。在此感谢WanAndroid的OpenApi,以及其它开源项目的贡献。
+*
 # TaoSchool
 一款基于Material Desgin设计的APP
 
